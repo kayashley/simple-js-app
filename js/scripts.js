@@ -1,7 +1,5 @@
-let pokemonList = ['Charmander', 'Jigglypuff', 'Squirtle'];
-
-let pokemonArray = [
-    {type: 'fire', height: '6', color: 'orange'},
-    {type: 'fairy', height: '5', color: 'pink'},
-    {type: 'water', height: '5', color: 'blue'}
+let pokemonList = [
+    {name: "Charmander", height: 6, types: ["fire, fly"]},
+    {name: "Pikachu", height: 5, types: ["electric, normal"]},
+    {name: "Squirtle", height: 5, types: ["water, rock"]}
 ];
