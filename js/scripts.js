@@ -24,7 +24,7 @@ let pokemonList = pokemonRepository.getAll();
 
 //forEach() loop
 pokemonList.forEach(function(pokemon) {
-        console.log(pokemon.name + ' is ' + pokemon.height + ' inches tall and is a ' + pokemon.type + ' type.')
+        document.write(pokemon.name + ' is ' + pokemon.height + ' inches tall and is a ' + pokemon.type + ' type.')
   });
 
 
