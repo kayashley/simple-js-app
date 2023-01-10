@@ -1,8 +1,8 @@
 //List of pokemon
 let pokemonList = [
-    {name: "Charmander", height: 6, types: ["fire"]},
-    {name: "Pikachu", height: 5, types: ["electric"]},
-    {name: "Squirtle", height: 5, types: ["water"]}
+    {name: "Charmander", height: 6, type: ["fire"]},
+    {name: "Pikachu", height: 5, type: ["electric"]},
+    {name: "Squirtle", height: 5, type: ["water"]}
   ];
 
 //forEach() loop
