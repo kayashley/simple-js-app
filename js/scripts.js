@@ -1,33 +1,58 @@
 //IIFE 
 
 let pokemonRepository = (function () {
-    let pokemonList = [];
+    let pokemonList = [
+        {
+            name: 'Pikachu',
+            type: 'electric',
+            height: 5
+        },
+        {
+            name: 'Squirtle',
+            type: 'water',
+            height: 5
+        },
+        {
+            name: 'Charmander',
+            type: 'fire',
+            height: 6
+        },
+    ]
 
-    function add (pokemon) {
+    function add(pokemon) {
         pokemonList.push(pokemon);
     }
-
+  
     function getAll() {
         return pokemonList;
     }
+  
     return {
         getAll: getAll,
         add: add
     }
 })();
 
-pokemonRepository.add( {name: "Charmander", height: 6, type: ["fire"]} );
-pokemonRepository.add( {name: "Pikachu", height: 5, type: ["electric"]});
-pokemonRepository.add( {name: "Squirtle", height: 5, type: ["water"]} );
+pokemonRepository.add({
+    name: "Wartortle",
+    type: "water",
+    height: 1
+});
 
-let pokemonList = pokemonRepository.getAll();
-
-//forEach() loop
+// forEach() loop
 pokemonList.forEach(function(pokemon) {
-        document.write(pokemon.name + ' is ' + pokemon.height + ' inches tall and is a ' + pokemon.type + ' type.')
-  });
+    if (pokemon.height > 5) {
+        document.write(pokemon.name + ' is a big pokemon!');
+    } else if (pokemon.height === 5) {
+        document.write(pokemon.name + ' is an average pokemon!');
+    } else {
+        document.write(pokemon.name + 'is a small pokemon!')
+    }
+});
 
-
+pokemonRepository.getAll().foreach(function (pokemon) {
+    document.write(pokemon.name + pokemon.height);
+});
 
 
 
