@@ -20,16 +20,41 @@ let pokemonRepository = (function () {
     ]
 
     function add(pokemon) {
-        pokemonList.push(pokemon);
+        if (
+            typeof pokemon === 'object' &&
+            'name' in pokemon &&
+            'height' in pokemon &&
+            'type' in pokemon
+        ) {
+            pokemonList.push(pokemon);
+        } else {
+            document.write('Not a pokemon.')
+        }
     }
   
     function getAll() {
         return pokemonList;
     }
+
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('button-class');
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+        button.addEventListener('click' function (pokemon));
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    }
   
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem : addListItem
     }
 })();
 
@@ -39,37 +64,40 @@ pokemonRepository.add({
     height: 1
 });
 
-// forEach() loop
-pokemonList.forEach(function(pokemon) {
-    if (pokemon.height > 5) {
-        document.write(pokemon.name + ' is a big pokemon!');
-    } else if (pokemon.height === 5) {
-        document.write(pokemon.name + ' is an average pokemon!');
-    } else {
-        document.write(pokemon.name + 'is a small pokemon!')
-    }
-});
+console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().foreach(function (pokemon) {
-    document.write(pokemon.name + pokemon.height);
-});
+
+// pokemonRepository.getAll().foreach(function (pokemon) {
+//     pokemonRepository.addListItem(pokemon);
+// });
 
 
 
 
-//OLD List of pokemon
+// OLD List of pokemon
 //let pokemonList = [
 //    {name: "Charmander", height: 6, type: ["fire"]},
 //    {name: "Pikachu", height: 5, type: ["electric"]},
 //    {name: "Squirtle", height: 5, type: ["water"]}
 //  ];
 
+// forEach() loop
+// pokemonList.forEach(function(pokemon) {
+//     if (pokemon.height > 5) {
+//         document.write(pokemon.name + ' is a big pokemon!');
+//     } else if (pokemon.height === 5) {
+//         document.write(pokemon.name + ' is an average pokemon!');
+//     } else {
+//         document.write(pokemon.name + 'is a small pokemon!')
+//     }
+// });
+
 //forEach() loop
 //pokemonList.forEach(function(pokemon) {
 //    console.log(pokemon.name + ' is ' + pokemon.height + ' inches tall and is a ' + pokemon.type + ' type.')
 //  });
 
-//OLD Loop of pokemon
+// OLD Loop of pokemon
 //  for (let i=0; i < pokemonList.length; i++) {
 //    //If the height is less than 7 and greater than 5 it is big
 //    if (pokemonList[i].height <7 && pokemonList[i].height >5) {
